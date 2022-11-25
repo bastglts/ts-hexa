@@ -1,0 +1,80 @@
+{
+  "name": "ts-hexa",
+  "version": "1.0.0",
+  "description": "Starter repository for hexagonal architecture workshops",
+  "homepage": "https://github.com/bastglts/ts-hexa#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bastglts/ts-hexa.git"
+  },
+  "keywords": [
+    "hexagonal-architecture"
+  ],
+  "author": "Bastien Gili-tos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bastglts/ts-hexa/issues"
+  },
+  "engines": {
+    "node": ">= 18"
+  },
+  "scripts": {
+    "lint": "eslint --max-warnings=0 .",
+    "lint:fix": "eslint --fix --max-warnings=0 .",
+    "build": "rm -rf dist && tsc",
+    "start": "cd dist/ && node src/index.js",
+    "start:dev": "ts-node-dev --respawn --transpile-only src/index.ts | pino-pretty",
+    "test": "yarn test:unit && yarn test:intg",
+    "test:unit": "jest --testMatch='**/*.spec.ts' --testPathPattern",
+    "test:intg": "jest --testMatch='**/*.intg-spec.ts' --runInBand --testPathPattern",
+    "prepare": "husky install",
+    "ts-typeorm": "ts-node ./node_modules/.bin/typeorm -d ./ormconfig.js",
+    "mig:generate": "yarn ts-typeorm migration:generate",
+    "mig:run": "yarn ts-typeorm migration:run",
+    "mig:revert": "yarn ts-typeorm migration:revert"
+  },
+  "devDependencies": {
+    "@types/cors": "2.8.12",
+    "@types/express": "4.17.14",
+    "@types/http-errors": "2.0.1",
+    "@types/jest": "29.2.2",
+    "@types/node": "18.11.9",
+    "@types/supertest": "2.0.12",
+    "@types/uuid": "8.3.4",
+    "@typescript-eslint/eslint-plugin": "5.43.0",
+    "@typescript-eslint/parser": "5.43.0",
+    "eslint": "8.27.0",
+    "eslint-config-prettier": "8.5.0",
+    "eslint-plugin-jest": "27.1.5",
+    "husky": "8.0.2",
+    "jest": "29.3.1",
+    "jest-extended": "3.1.0",
+    "lint-staged": "13.0.3",
+    "pino-pretty": "9.1.1",
+    "prettier": "2.7.1",
+    "supertest": "6.3.1",
+    "ts-jest": "29.0.3",
+    "ts-node": "10.9.1",
+    "ts-node-dev": "2.0.0",
+    "typescript": "4.8.4"
+  },
+  "lint-staged": {
+    "src/**/*.{ts,json,md}": [
+      "prettier --write",
+      "eslint --fix --max-warnings=0"
+    ]
+  },
+  "dependencies": {
+    "cors": "2.8.5",
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
+    "express-async-handler": "1.2.0",
+    "http-errors": "2.0.0",
+    "inversify": "6.0.1",
+    "pg": "8.8.0",
+    "pino": "8.7.0",
+    "reflect-metadata": "0.1.13",
+    "typeorm": "0.3.10",
+    "uuid": "9.0.0"
+  }
+}

@@ -1,0 +1,14 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:11.12-alpine3.14
+    environment:
+      POSTGRES_USER: docker
+      POSTGRES_PASSWORD: docker
+    ports:
+      - '5432:5432'
+
+  adminer:
+    image: adminer
+    ports:
+      - 8080:8080
