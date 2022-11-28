@@ -3,12 +3,11 @@ import request from 'supertest';
 import { container } from '../../../../di-container';
 import { PostgresDataSource } from '../../../../shared/adapters/driven/postgres-datasource';
 import { ExpressWebServer } from '../../../../shared/adapters/driving/express-web-server';
-import { USER_REPOSITORY } from '../../../application/ports/driven/user.repository.port';
-import { SqlUserRepository } from '../../driven/persistence/user.repository.sql';
+import { UserRepositoryPort, USER_REPOSITORY } from '../../../core/application/ports/driven/user.repository.port';
 
 const expressApp = container.get(ExpressWebServer).app;
 const database = container.get(PostgresDataSource);
-const userRepository = container.get<SqlUserRepository>(USER_REPOSITORY);
+const userRepository = container.get<UserRepositoryPort>(USER_REPOSITORY);
 
 describe(`/users/register`, () => {
   beforeAll(async () => {

@@ -3,7 +3,7 @@ import 'reflect-metadata';
 import { container } from './di-container';
 import { PostgresDataSource } from './shared/adapters/driven/postgres-datasource';
 import { ExpressWebServer } from './shared/adapters/driving/express-web-server';
-import { LOGGER, LoggerPort } from './shared/application/ports/driven/logger.port';
+import { LOGGER, LoggerPort } from './shared/ports/driven/logger.port';
 
 const logger = container.get<LoggerPort>(LOGGER);
 const database = container.get(PostgresDataSource);

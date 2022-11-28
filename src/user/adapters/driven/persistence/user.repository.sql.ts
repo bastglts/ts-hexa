@@ -1,8 +1,8 @@
 import { injectable } from 'inversify';
 import { Repository } from 'typeorm';
 
-import { UserRepositoryPort } from '../../../application/ports/driven/user.repository.port';
-import { User } from '../../../domain/user';
+import { UserRepositoryPort } from '../../../core/application/ports/driven/user.repository.port';
+import { User } from '../../../core/domain/user';
 import { UserTypeormEntity } from './user.orm-entity';
 
 @injectable()

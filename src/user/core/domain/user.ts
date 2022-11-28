@@ -1,4 +1,4 @@
-import { DomainEntity, EntityProps } from '../../shared/domain/entity';
+import { DomainEntity, EntityProps } from '../../../shared/domain/entity';
 
 export interface UserProps {
   firstName: string;

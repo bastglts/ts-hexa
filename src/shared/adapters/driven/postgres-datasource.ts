@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
 
-import { LoggerPort } from '../../application/ports/driven/logger.port';
+import { LoggerPort } from '../../ports/driven/logger.port';
 
 export interface PostgresConfig {
   readonly host: string;

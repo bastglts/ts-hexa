@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, PrimaryColumn, UpdateDateColumn } from 'typeorm';
-import { User } from '../../../domain/user';
+import { User } from '../../../core/domain/user';
 
 @Entity({ name: 'user' })
 export class UserTypeormEntity {

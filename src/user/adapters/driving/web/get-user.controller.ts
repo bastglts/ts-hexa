@@ -4,8 +4,8 @@ import { inject, injectable } from 'inversify';
 import { validate as isValidUuid } from 'uuid';
 
 import { ExpressController } from '../../../../shared/adapters/driving/express-web-server';
-import { GetUserPort, GET_USER_SERVICE } from '../../../application/ports/driving/get-user.port';
-import { UserNotFoundError } from '../../../domain/errors';
+import { GetUserPort, GET_USER_SERVICE } from '../../../core/application/ports/driving/get-user.port';
+import { UserNotFoundError } from '../../../core/domain/errors';
 
 @injectable()
 export class GetUserController implements ExpressController {

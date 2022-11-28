@@ -3,8 +3,8 @@ import httpErrors from 'http-errors';
 import { inject, injectable } from 'inversify';
 
 import { ExpressController } from '../../../../shared/adapters/driving/express-web-server';
-import { RegisterUserPort, REGISTER_USER_SERVICE } from '../../../application/ports/driving/register-user.port';
-import { CannotRegisterUnderageUserError } from '../../../domain/errors';
+import { RegisterUserPort, REGISTER_USER_SERVICE } from '../../../core/application/ports/driving/register-user.port';
+import { CannotRegisterUnderageUserError } from '../../../core/domain/errors';
 
 interface RegisterUserBody {
   firstName?: string;
