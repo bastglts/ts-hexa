@@ -7,8 +7,8 @@ const dataSource = new DataSource({
   username: process.env.POSTGRES_DATABASE_USER || 'docker',
   password: process.env.POSTGRES_DATABASE_PASSWORD || 'docker',
   database: process.env.POSTGRES_DATABASE_NAME || 'ts-hexa',
-  entities: [`${__dirname}/src/*/adapters/driven/persistence/*.orm-entity.@(ts|js)`],
-  migrations: [`${__dirname}/migrations/*.@(ts|js)`],
+  entities: [`src/*/adapters/driven/persistence/*.orm-entity.ts`],
+  migrations: [`migrations/*.ts`],
   migrationsTransactionMode: 'all',
 });
 

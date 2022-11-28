@@ -28,10 +28,10 @@
     "test:unit": "jest --testMatch='**/*.spec.ts' --testPathPattern",
     "test:intg": "jest --testMatch='**/*.intg-spec.ts' --runInBand --testPathPattern",
     "prepare": "husky install",
-    "ts-typeorm": "ts-node ./node_modules/.bin/typeorm -d ./ormconfig.js",
-    "mig:generate": "yarn ts-typeorm migration:generate",
-    "mig:run": "yarn ts-typeorm migration:run",
-    "mig:revert": "yarn ts-typeorm migration:revert"
+    "_typeorm": "ts-node ./node_modules/.bin/typeorm -d ./ormconfig.js",
+    "mig:generate": "yarn _typeorm migration:generate",
+    "mig:run": "yarn _typeorm migration:run",
+    "mig:revert": "yarn _typeorm migration:revert"
   },
   "devDependencies": {
     "@types/cors": "2.8.12",
