@@ -2,8 +2,8 @@ import { Request, Response } from 'express';
 import httpErrors from 'http-errors';
 import { inject, injectable } from 'inversify';
 
-import { ExpressController } from '../../../../shared/adapters/driving/express-web-server';
-import { RegisterUserPort, REGISTER_USER_SERVICE } from '../../../core/application/ports/driving/register-user.port';
+import { ExpressController } from '../../../../shared/adapters/in/express-web-server';
+import { RegisterUserPort, REGISTER_USER_SERVICE } from '../../../core/application/ports/in/register-user.port';
 import { CannotRegisterUnderageUserError } from '../../../core/domain/errors';
 
 interface RegisterUserBody {

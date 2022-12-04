@@ -1,9 +1,9 @@
 import request from 'supertest';
 
 import { container } from '../../../../di-container';
-import { PostgresDataSource } from '../../../../shared/adapters/driven/postgres-datasource';
-import { ExpressWebServer } from '../../../../shared/adapters/driving/express-web-server';
-import { UserRepositoryPort, USER_REPOSITORY } from '../../../core/application/ports/driven/user.repository.port';
+import { ExpressWebServer } from '../../../../shared/adapters/in/express-web-server';
+import { PostgresDataSource } from '../../../../shared/adapters/out/postgres-datasource';
+import { UserRepositoryPort, USER_REPOSITORY } from '../../../core/application/ports/out/user.repository.port';
 
 const expressApp = container.get(ExpressWebServer).app;
 const database = container.get(PostgresDataSource);

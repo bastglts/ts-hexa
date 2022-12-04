@@ -3,8 +3,8 @@ import httpErrors from 'http-errors';
 import { inject, injectable } from 'inversify';
 import { validate as isValidUuid } from 'uuid';
 
-import { ExpressController } from '../../../../shared/adapters/driving/express-web-server';
-import { GetUserPort, GET_USER_SERVICE } from '../../../core/application/ports/driving/get-user.port';
+import { ExpressController } from '../../../../shared/adapters/in/express-web-server';
+import { GetUserPort, GET_USER_SERVICE } from '../../../core/application/ports/in/get-user.port';
 import { UserNotFoundError } from '../../../core/domain/errors';
 
 @injectable()

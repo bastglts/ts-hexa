@@ -1,8 +1,8 @@
 import { inject, injectable } from 'inversify';
 
 import { UserNotFoundError } from '../../domain/errors';
-import { UserRepositoryPort, USER_REPOSITORY } from '../ports/driven/user.repository.port';
-import { GetUserPort } from '../ports/driving/get-user.port';
+import { GetUserPort } from '../ports/in/get-user.port';
+import { UserRepositoryPort, USER_REPOSITORY } from '../ports/out/user.repository.port';
 
 @injectable()
 export class GetUserService implements GetUserPort {

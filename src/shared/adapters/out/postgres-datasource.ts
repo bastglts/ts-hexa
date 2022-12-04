@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
 
-import { LoggerPort } from '../../ports/driven/logger.port';
+import { LoggerPort } from '../../ports/out/logger.port';
 
 export interface PostgresConfig {
   readonly host: string;
@@ -19,7 +19,7 @@ export class PostgresDataSource extends DataSource {
       username: config.username,
       password: config.password,
       database: config.database,
-      entities: [`${process.cwd()}/src/*/adapters/driven/persistence/*.orm-entity.@(js|ts)`],
+      entities: [`${process.cwd()}/src/*/adapters/out/persistence/*.orm-entity.@(js|ts)`],
     });
   }
 

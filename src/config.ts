@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 
-import { PostgresConfig } from './shared/adapters/driven/postgres-datasource';
-import { ExpressConfig } from './shared/adapters/driving/express-web-server';
-import { LoggerConfig, LogLevel } from './shared/ports/driven/logger.port';
+import { ExpressConfig } from './shared/adapters/in/express-web-server';
+import { PostgresConfig } from './shared/adapters/out/postgres-datasource';
+import { LoggerConfig, LogLevel } from './shared/ports/out/logger.port';
 
 dotenv.config();
 
