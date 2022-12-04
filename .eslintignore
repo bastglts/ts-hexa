@@ -5,3 +5,4 @@ tmp
 .env
 postgres
 ormconfig.js
+migrations
