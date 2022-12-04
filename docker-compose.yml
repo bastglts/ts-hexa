@@ -5,6 +5,8 @@ services:
     environment:
       POSTGRES_USER: docker
       POSTGRES_PASSWORD: docker
+    volumes:
+      - './postgres:/var/lib/postgresql/data'
     ports:
       - '5432:5432'
 
