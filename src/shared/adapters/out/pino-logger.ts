@@ -1,7 +1,7 @@
 import { injectable } from 'inversify';
 import { BaseLogger, pino } from 'pino';
 
-import { LoggerConfig, LoggerPort } from '../../ports/driven/logger.port';
+import { LoggerConfig, LoggerPort } from '../../ports/out/logger.port';
 
 @injectable()
 export class PinoLogger implements LoggerPort {

@@ -2,8 +2,8 @@ import { inject, injectable } from 'inversify';
 import { CannotRegisterUnderageUserError } from '../../domain/errors';
 
 import { User, UserProps } from '../../domain/user';
-import { UserRepositoryPort, USER_REPOSITORY } from '../ports/driven/user.repository.port';
-import { RegisterUserPort } from '../ports/driving/register-user.port';
+import { RegisterUserPort } from '../ports/in/register-user.port';
+import { UserRepositoryPort, USER_REPOSITORY } from '../ports/out/user.repository.port';
 
 @injectable()
 export class RegisterUserService implements RegisterUserPort {

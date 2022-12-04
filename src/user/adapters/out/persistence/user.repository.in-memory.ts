@@ -1,6 +1,6 @@
 import { injectable } from 'inversify';
 
-import { UserRepositoryPort } from '../../../core/application/ports/driven/user.repository.port';
+import { UserRepositoryPort } from '../../../core/application/ports/out/user.repository.port';
 import { User } from '../../../core/domain/user';
 
 @injectable()

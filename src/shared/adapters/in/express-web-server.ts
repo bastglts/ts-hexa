@@ -5,7 +5,7 @@ import { Server } from 'http';
 import { HttpError, isHttpError } from 'http-errors';
 import { injectable } from 'inversify';
 
-import { LoggerPort } from '../../ports/driven/logger.port';
+import { LoggerPort } from '../../ports/out/logger.port';
 
 export interface ExpressController {
   method: 'get' | 'post' | 'put' | 'delete';

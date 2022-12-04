@@ -1,5 +1,5 @@
 import { UUID_V4_REGEX } from '../../../../shared/test/utils';
-import { InMemoryUserRepository } from '../../../adapters/driven/persistence/user.repository.in-memory';
+import { InMemoryUserRepository } from '../../../adapters/out/persistence/user.repository.in-memory';
 import { CannotRegisterUnderageUserError } from '../../domain/errors';
 import { UserProps } from '../../domain/user';
 import { RegisterUserService } from './register-user.service';
