@@ -12,14 +12,14 @@ Clone the repository and create the dotenv file:
 cp example.env .env
 ```
 
-Next, ensure that the project can build & that the tests are not failing:
+Next, ensure that the project can build:
 
 ```shell
 # Install packages 📦
 yarn
 
-# Build & Test 🏗
-yarn build && yarn test:unit
+# Build 🏗
+yarn build
 ```
 
 ### Running the app
