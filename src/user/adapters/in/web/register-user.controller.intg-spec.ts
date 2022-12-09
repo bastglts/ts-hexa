@@ -23,7 +23,7 @@ describe(`/users/register`, () => {
 
   it(`registers an adult user`, async () => {
     // given
-    const adultUser = {
+    const adultUserInput = {
       firstName: 'john',
       lastName: 'doe',
       email: 'john.doe@example.com',
@@ -33,11 +33,11 @@ describe(`/users/register`, () => {
     // when
     const res: { body: { userUid: string } } = await request(expressApp)
       .post('/users/register')
-      .send(adultUser)
+      .send(adultUserInput)
       .set('Accept', 'application/json')
       .expect(200);
 
     // then
-    expect(await userRepository.getById(res.body.userUid)).toMatchObject(adultUser);
+    expect(await userRepository.getById(res.body.userUid)).toMatchObject({ ...adultUserInput, active: true });
   });
 });

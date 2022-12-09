@@ -18,6 +18,9 @@ export class UserTypeormEntity {
   @Column({ name: 'age', type: 'int' })
   age!: number;
 
+  @Column({ name: 'active', type: 'bool' })
+  active!: boolean;
+
   @CreateDateColumn({ name: 'created_at', type: 'timestamp with time zone' })
   createdAt!: Date;
 
@@ -31,6 +34,7 @@ export class UserTypeormEntity {
       lastName: this.lastName,
       email: this.email,
       age: this.age,
+      active: this.active,
       createdAt: this.createdAt,
       updatedAt: this.updatedAt,
     });
@@ -43,6 +47,7 @@ export class UserTypeormEntity {
     entity.lastName = user.lastName;
     entity.email = user.email;
     entity.age = user.age;
+    entity.active = user.active;
     entity.createdAt = user.createdAt;
     entity.updatedAt = user.updatedAt;
     return entity;

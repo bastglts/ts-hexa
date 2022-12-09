@@ -5,6 +5,7 @@ export interface UserProps {
   lastName: string;
   email: string;
   age: number;
+  active: boolean;
 }
 
 export class User extends DomainEntity {
@@ -12,6 +13,7 @@ export class User extends DomainEntity {
   readonly firstName: string;
   readonly email: string;
   readonly age: number;
+  readonly active: boolean;
 
   constructor(props: UserProps & EntityProps) {
     super(props);
@@ -20,5 +22,6 @@ export class User extends DomainEntity {
     this.lastName = props.lastName;
     this.email = props.email;
     this.age = props.age;
+    this.active = props.active;
   }
 }
