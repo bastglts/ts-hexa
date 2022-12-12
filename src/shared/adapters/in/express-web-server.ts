@@ -81,8 +81,8 @@ export class ExpressWebServer {
 
       if (response.headersSent) return;
 
-      if (isHttpError(err)) {
-        response.status(err.statusCode).send({ error: err.expose ? err.message : 'Internal Server Error' });
+      if (isHttpError(err) && err.expose) {
+        response.status(err.statusCode).send({ error: err.message });
       } else {
         response.status(500).send({ error: 'Internal Server Error' });
       }
