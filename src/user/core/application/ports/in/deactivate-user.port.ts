@@ -1,5 +1,5 @@
-export const DEACTIVATE_USER_SERVICE = Symbol.for('DeactivateUserService');
+export const DEACTIVATE_USER_INPUT_PORT = Symbol.for('DeactivateUserInputPort');
 
-export interface DeactivateUserPort {
+export interface DeactivateUserInputPort {
   handle: (userId: string) => Promise<void>;
 }

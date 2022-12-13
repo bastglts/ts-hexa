@@ -13,7 +13,7 @@ export class User extends DomainEntity {
   readonly firstName: string;
   readonly email: string;
   readonly age: number;
-  readonly active: boolean;
+  active: boolean;
 
   constructor(props: UserProps & EntityProps) {
     super(props);
