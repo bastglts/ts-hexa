@@ -1,4 +1,5 @@
 import request from 'supertest';
+import { v4 } from 'uuid';
 
 import { container } from '../../../../di-container';
 import { ExpressWebServer } from '../../../../shared/adapters/in/express-web-server';
@@ -24,9 +25,10 @@ describe(`/user/deactivate`, () => {
 
   it(`deactivate user`, async () => {
     // given
+    const uid = v4();
     await userRepository.save(
       new User({
-        uid: 'user-uid-1',
+        uid,
         age: 27,
         email: 'bg@mail.com',
         firstName: 'B',
@@ -38,11 +40,11 @@ describe(`/user/deactivate`, () => {
     // when
     await request(expressApp)
       .post('/users/deactivate')
-      .send({ userId: 'user-uid-1' })
+      .send({ userId: uid })
       .set('Accept', 'application/json')
       .expect(200);
 
     // then
-    expect((await userRepository.getById('user-uid-1'))?.active).toBe(false);
+    expect((await userRepository.getById(uid))?.active).toBe(false);
   });
 });

@@ -23,4 +23,8 @@ export class SqlUserRepository implements UserRepositoryOutputPort {
 
     return userEntity.toDomain();
   }
+
+  async deactivate(userId: string) {
+    await this._repository.update({ uid: userId }, { active: false });
+  }
 }

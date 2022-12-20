@@ -20,10 +20,10 @@ export class InMemoryUserRepository implements UserRepositoryOutputPort {
     return Promise.resolve(user);
   }
 
-  deactivate(user: User) {
+  deactivate(userId: string) {
+    const index = this.users.findIndex((_user) => _user.uid === userId);
+    const user = this.users[index];
     user.active = false;
-    const index = this.users.findIndex((_user) => _user.uid === user.uid);
-    this.users[index] = user;
     return Promise.resolve();
   }
 }

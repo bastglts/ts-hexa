@@ -8,7 +8,7 @@ import { LoggerOutputPort, LOGGER_OUTPUT_PORT } from './shared/ports/out/logger.
 import { DeactivateUserController } from './user/adapters/in/web/deactivate-user.controller';
 import { GetUserController } from './user/adapters/in/web/get-user.controller';
 import { RegisterUserController } from './user/adapters/in/web/register-user.controller';
-import { InMemoryUserRepository } from './user/adapters/out/persistence/user.repository.in-memory';
+import { SqlUserRepository } from './user/adapters/out/persistence/user.repository.sql';
 import {
   DeactivateUserInputPort,
   DEACTIVATE_USER_INPUT_PORT,
@@ -58,5 +58,4 @@ container.bind<LoggerOutputPort>(LOGGER_OUTPUT_PORT).toDynamicValue(() => new Pi
 container
   .bind(PostgresDataSource)
   .toDynamicValue(() => new PostgresDataSource(config.postgres, container.get(LOGGER_OUTPUT_PORT)));
-// container.bind<UserRepositoryPort>(USER_REPOSITORY).to(SqlUserRepository);
-container.bind<UserRepositoryOutputPort>(USER_REPOSITORY_OUTPUT_PORT).to(InMemoryUserRepository);
+container.bind<UserRepositoryOutputPort>(USER_REPOSITORY_OUTPUT_PORT).to(SqlUserRepository);

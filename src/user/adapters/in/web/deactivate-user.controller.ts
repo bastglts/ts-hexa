@@ -7,7 +7,6 @@ import {
   DeactivateUserInputPort,
   DEACTIVATE_USER_INPUT_PORT,
 } from '../../../core/application/ports/in/deactivate-user.port';
-import { CannotRegisterUnderageUserError } from '../../../core/domain/errors';
 
 interface DeactivateUserBody {
   userId?: string;
@@ -26,13 +25,7 @@ export class DeactivateUserController implements ExpressController {
     // input validation
     if (!userId) throw new httpErrors.BadRequest('userId cannot be empty');
 
-    try {
-      await this._deactivateUserService.handle(userId);
-      res.json({});
-    } catch (err) {
-      // error translation
-      if (err instanceof CannotRegisterUnderageUserError) throw new httpErrors.BadRequest(err.message);
-      throw err;
-    }
+    await this._deactivateUserService.handle(userId);
+    res.json({});
   }
 }
