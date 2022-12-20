@@ -7,7 +7,6 @@ import { PostgresDataSource } from './shared/adapters/out/postgres-datasource';
 import { LOGGER, LoggerPort } from './shared/ports/out/logger.port';
 import { GetUserController } from './user/adapters/in/web/get-user.controller';
 import { RegisterUserController } from './user/adapters/in/web/register-user.controller';
-import { UserTypeormEntity } from './user/adapters/out/persistence/user.orm-entity';
 import { SqlUserRepository } from './user/adapters/out/persistence/user.repository.sql';
 import { GetUserPort, GET_USER_SERVICE } from './user/core/application/ports/in/get-user.port';
 import { RegisterUserPort, REGISTER_USER_SERVICE } from './user/core/application/ports/in/register-user.port';
@@ -40,6 +39,4 @@ container.bind<GetUserPort>(GET_USER_SERVICE).to(GetUserService);
  */
 container.bind<LoggerPort>(LOGGER).toDynamicValue(() => new PinoLogger(config.logger));
 container.bind(PostgresDataSource).toDynamicValue(() => new PostgresDataSource(config.postgres, container.get(LOGGER)));
-container
-  .bind<UserRepositoryPort>(USER_REPOSITORY)
-  .toDynamicValue(() => new SqlUserRepository(container.get(PostgresDataSource).getRepository(UserTypeormEntity)));
+container.bind<UserRepositoryPort>(USER_REPOSITORY).to(SqlUserRepository);
