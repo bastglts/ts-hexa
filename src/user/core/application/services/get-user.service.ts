@@ -1,12 +1,12 @@
 import { inject, injectable } from 'inversify';
 
 import { UserNotFoundError } from '../../domain/errors';
-import { GetUserPort } from '../ports/in/get-user.port';
-import { UserRepositoryPort, USER_REPOSITORY } from '../ports/out/user.repository.port';
+import { GetUserInputPort } from '../ports/in/get-user.input-port';
+import { UserRepositoryOutputPort, USER_REPOSITORY_OUTPUT_PORT } from '../ports/out/user-repository.output-port';
 
 @injectable()
-export class GetUserService implements GetUserPort {
-  constructor(@inject(USER_REPOSITORY) private readonly _userRepository: UserRepositoryPort) {}
+export class GetUserService implements GetUserInputPort {
+  constructor(@inject(USER_REPOSITORY_OUTPUT_PORT) private readonly _userRepository: UserRepositoryOutputPort) {}
 
   async workWith(userUid: string) {
     const user = await this._userRepository.getById(userUid);

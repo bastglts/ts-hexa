@@ -1,8 +1,8 @@
 import { User } from '../../../domain/user';
 
-export interface UserRepositoryPort {
+export interface UserRepositoryOutputPort {
   save: (user: User) => Promise<User>;
   getById: (userUid: string) => Promise<User | undefined>;
 }
 
-export const USER_REPOSITORY = Symbol.for('UserRepository');
+export const USER_REPOSITORY_OUTPUT_PORT = Symbol.for('UserRepositoryOutputPort');

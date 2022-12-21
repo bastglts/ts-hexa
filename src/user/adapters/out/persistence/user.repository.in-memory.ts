@@ -1,10 +1,10 @@
 import { injectable } from 'inversify';
 
-import { UserRepositoryPort } from '../../../core/application/ports/out/user.repository.port';
+import { UserRepositoryOutputPort } from '../../../core/application/ports/out/user-repository.output-port';
 import { User } from '../../../core/domain/user';
 
 @injectable()
-export class InMemoryUserRepository implements UserRepositoryPort {
+export class InMemoryUserRepository implements UserRepositoryOutputPort {
   public readonly users: User[] = [];
 
   save(user: User) {

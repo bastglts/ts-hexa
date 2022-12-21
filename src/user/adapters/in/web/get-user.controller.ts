@@ -4,7 +4,7 @@ import { inject, injectable } from 'inversify';
 import { validate as isValidUuid } from 'uuid';
 
 import { ExpressController } from '../../../../shared/adapters/in/express-web-server';
-import { GetUserPort, GET_USER_SERVICE } from '../../../core/application/ports/in/get-user.port';
+import { GetUserInputPort, GET_USER_INPUT_PORT } from '../../../core/application/ports/in/get-user.input-port';
 import { UserNotFoundError } from '../../../core/domain/errors';
 
 @injectable()
@@ -12,7 +12,7 @@ export class GetUserController implements ExpressController {
   readonly route = '/users/:userUid';
   readonly method = 'get';
 
-  constructor(@inject(GET_USER_SERVICE) private readonly _getUserService: GetUserPort) {}
+  constructor(@inject(GET_USER_INPUT_PORT) private readonly _getUserService: GetUserInputPort) {}
 
   async handler(req: Request, res: Response) {
     // input validation
