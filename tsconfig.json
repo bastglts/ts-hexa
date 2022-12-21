@@ -15,5 +15,5 @@
     "types": ["node", "jest", "reflect-metadata"]
   },
   "include": ["**/*.ts"],
-  "exclude": ["migrations", "node_modules"]
+  "exclude": ["migrations", "node_modules", "jest.config.ts"]
 }

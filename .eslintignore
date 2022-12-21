@@ -6,3 +6,4 @@ tmp
 postgres
 ormconfig.js
 migrations
+jest.config.ts
