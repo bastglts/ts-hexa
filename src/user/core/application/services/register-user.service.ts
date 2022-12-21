@@ -2,12 +2,12 @@ import { inject, injectable } from 'inversify';
 import { CannotRegisterUnderageUserError } from '../../domain/errors';
 
 import { User, UserProps } from '../../domain/user';
-import { RegisterUserPort } from '../ports/in/register-user.port';
-import { UserRepositoryPort, USER_REPOSITORY } from '../ports/out/user.repository.port';
+import { RegisterUserInputPort } from '../ports/in/register-user.input-port';
+import { UserRepositoryOutputPort, USER_REPOSITORY_OUTPUT_PORT } from '../ports/out/user-repository.output-port';
 
 @injectable()
-export class RegisterUserService implements RegisterUserPort {
-  constructor(@inject(USER_REPOSITORY) private readonly _userRepository: UserRepositoryPort) {}
+export class RegisterUserService implements RegisterUserInputPort {
+  constructor(@inject(USER_REPOSITORY_OUTPUT_PORT) private readonly _userRepository: UserRepositoryOutputPort) {}
 
   async workWith(userProps: UserProps) {
     // business rule

@@ -3,7 +3,10 @@ import httpErrors from 'http-errors';
 import { inject, injectable } from 'inversify';
 
 import { ExpressController } from '../../../../shared/adapters/in/express-web-server';
-import { RegisterUserPort, REGISTER_USER_SERVICE } from '../../../core/application/ports/in/register-user.port';
+import {
+  RegisterUserInputPort,
+  REGISTER_USER_INPUT_PORT,
+} from '../../../core/application/ports/in/register-user.input-port';
 import { CannotRegisterUnderageUserError } from '../../../core/domain/errors';
 
 interface RegisterUserBody {
@@ -18,7 +21,7 @@ export class RegisterUserController implements ExpressController {
   readonly route = '/users/register';
   readonly method = 'post';
 
-  constructor(@inject(REGISTER_USER_SERVICE) private readonly _registerUserService: RegisterUserPort) {}
+  constructor(@inject(REGISTER_USER_INPUT_PORT) private readonly _registerUserService: RegisterUserInputPort) {}
 
   async handler(req: Request<unknown, unknown, RegisterUserBody>, res: Response) {
     const { firstName, lastName, email, age } = req.body;

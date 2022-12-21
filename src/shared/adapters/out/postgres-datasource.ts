@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
 
-import { LoggerPort } from '../../ports/out/logger.port';
+import { LoggerOutputPort } from '../../ports/out/logger.output-port';
 
 export interface PostgresConfig {
   readonly host: string;
@@ -11,7 +11,7 @@ export interface PostgresConfig {
 }
 
 export class PostgresDataSource extends DataSource {
-  constructor(config: PostgresConfig, private readonly _logger: LoggerPort) {
+  constructor(config: PostgresConfig, private readonly _logger: LoggerOutputPort) {
     super({
       type: 'postgres',
       host: config.host,

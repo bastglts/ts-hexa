@@ -5,7 +5,7 @@ import { Server } from 'http';
 import { HttpError, isHttpError } from 'http-errors';
 import { injectable } from 'inversify';
 
-import { LoggerPort } from '../../ports/out/logger.port';
+import { LoggerOutputPort } from '../../ports/out/logger.output-port';
 
 export interface ExpressController {
   method: 'get' | 'post' | 'put' | 'delete';
@@ -24,7 +24,11 @@ export class ExpressWebServer {
   private _server!: Server;
   public app: Express;
 
-  constructor(private readonly _config: ExpressConfig, private _logger: LoggerPort, controllers: ExpressController[]) {
+  constructor(
+    private readonly _config: ExpressConfig,
+    private _logger: LoggerOutputPort,
+    controllers: ExpressController[],
+  ) {
     this.app = express();
 
     this.app.use(cors({ origin: this._config.corsOrigin }));

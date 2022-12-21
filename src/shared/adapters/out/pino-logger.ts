@@ -1,10 +1,10 @@
 import { injectable } from 'inversify';
 import { BaseLogger, pino } from 'pino';
 
-import { LoggerConfig, LoggerPort } from '../../ports/out/logger.port';
+import { LoggerConfig, LoggerOutputPort } from '../../ports/out/logger.output-port';
 
 @injectable()
-export class PinoLogger implements LoggerPort {
+export class PinoLogger implements LoggerOutputPort {
   private _pino: BaseLogger;
 
   constructor(readonly config: LoggerConfig) {
