@@ -72,7 +72,7 @@
     "http-errors": "2.0.0",
     "inversify": "6.0.1",
     "pg": "8.11.1",
-    "pino": "8.8.0",
+    "pino": "8.14.1",
     "reflect-metadata": "0.1.13",
     "typeorm": "0.3.17",
     "uuid": "9.0.0"
